@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: order-service
+  config:
+    import: "optional:configserver:"
+#    import: "configserver:http://localhost:8071"
+  datasource:
+    url: jdbc:h2:mem:mydb
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+  cloud:
+    discovery:
+      enabled: false
+    #      spring sleuth is deprecated with spring boot 3.*, setting the below skips the version check.
+    compatibility-verifier:
+      enabled: false
+  kafka:
+    streams:
+      auto-startup: false
+
+redis:
+  server: localhost
+  port: 6037
